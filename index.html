@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehiculos | Index</title>
+    <script src="../parcial/ts/Validaciones.js" type="text/javascript"></script>
+    <script src="../parcial/ts/Vehiculo.js" type="text/javascript"></script>
+    <script src="../parcial/ts/Auto.js" type="text/javascript"></script>
+    <script src="../parcial/ts/Camioneta.js" type="text/javascript"></script>
+    <script src="../parcial/ts/HtmlFunciones.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../parcial/css/styles.css" type="text/css">
+</head>
+<body>
+    <div>
+        <input type="button" id="openForm" name="openForm" value="Alta" onclick="General.newCarForm(event);">
+    </div>
+    <div>
+        <br>
+        <label for="filtro-vehiculo">Filtrar por:</label>
+        <select name="filtro-vehiculo" id="filtro-vehiculo">
+            <option value="1">Auto</option>
+            <option value="2">Camioneta</option> 
+        </select>
+        <label for="precio-promedio">Promedio de precio:</label>
+        <input type="text" id="precio-promedio" name="precio-promedio">
+        <input type= "button" id="calcula-promedio" name="calcula-promedio" value="Calcular Promedio">
+    </div>
+    <div id="loading" hidden></div>
+    <form>
+        <div class="container" id="container">
+            <button id="close-btn" onclick="General.disableEventDefaultCloseButton(event);"></button>
+            <br>
+            <label for="id">Id</label>
+            <input type="text" id="id" disabled>
+            <br>
+            <label for="marca">Marca</label>
+            <br>
+            <input type="text" id="marca" name="marca" maxlength="15" class="noError">
+            <br>
+            <label for="modelo">Modelo</label>
+            <br>
+            <input type="text" id="modelo" name="modelo" maxlength="20" class="noError">
+            <br>
+            <label for="precio">Precio</label>
+            <br>
+            <input type="number" id="precio" name="precio" min="10000" max="5000000" class="noError">
+            <br>
+            <label for="tipo-vehiculo">Tipo:</label>
+            <br>
+            <select name="tipo-vehiculo" id="tipo-vehiculo" onchange="General.selectTypeVehicle();">
+                <option value="1">Auto</option>
+                <option value="2">Camioneta</option> 
+            </select>
+            <br>
+            <label for="puertas">Puertas</label>
+            <br>
+            <input type="number" id="puertas" name="puertas" min="3" max="5" class="noError">
+            <br>
+            <label for="cuatro-x-cuatro">Es 4x4?</label>
+            <br>
+            <select name="cuatro-x-cuatro" id="cuatro-x-cuatro" disabled>
+                <option value="1">Si</option>
+                <option value="2">No</option> 
+            </select>
+            <br>
+            <input type="button" id="addFormDataButton" name="addFormDataButton" value="Agregar" onclick="General.newVehicle()">
+        </div>
+    </form>
+    <div>
+        <h2>Lista de vehiculos</h2>
+    </div>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Precio</th>
+            <th>Accion</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
